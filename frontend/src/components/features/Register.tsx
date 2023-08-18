@@ -9,8 +9,8 @@ import { FileAddressDisplay } from "./FileAddressDisplay";
 import Spinner from "../ui/Spinner";
 import { useAccountContext } from "@/context/AccountProvider";
 import { usePageContext } from "@/context/PageProvider";
-import { useHash } from "@/hooks/useHash";
-import { useReadExcel } from "@/hooks/useReadExcel";
+import { createHash } from "@/utils/createHash";
+import { readExcel } from "@/utils/readExcel";
 import { CONTRACT_ADDRESS } from "@/utils/Contents";
 import contractAbi from "../../utils/contractAbi.json";
 
@@ -28,10 +28,10 @@ export const Register = () => {
 
   const registerExcelData = async() => {
     if(excelFile){
-      const excelDataJson = await useReadExcel(excelFile);
-      const excelDataHash = await useHash(excelDataJson);
+      const excelDataJson = await readExcel(excelFile);
+      const excelDataHash = await createHash(excelDataJson);
       
-      const _excelNameHash = await useHash(excelFileName);
+      const _excelNameHash = await createHash(excelFileName);
       
       const { ethereum } = window;
       if(!ethereum){

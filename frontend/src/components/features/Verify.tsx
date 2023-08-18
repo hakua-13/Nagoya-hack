@@ -7,8 +7,8 @@ import { AiFillCheckCircle, AiFillCloseCircle } from "react-icons/ai";
 import { IsConnectWallet } from "./IsConnextWallet";
 import { ExcelInput } from "./ExcelInput";
 import { usePageContext } from "@/context/PageProvider";
-import { useHash } from "@/hooks/useHash";
-import { useReadExcel } from "@/hooks/useReadExcel";
+import { createHash } from "@/utils/createHash";
+import { readExcel } from "@/utils/readExcel";
 import { FileAddressDisplay } from "./FileAddressDisplay";
 import { CONTRACT_ADDRESS } from "@/utils/Contents";
 import contractAbi from "../../utils/contractAbi.json";
@@ -35,9 +35,9 @@ export const Verify = () => {
         return;
       }
       setIsAddress(true);
-      const excelDataJson = await useReadExcel(excelFile);
-      const excelDataHash = await useHash(excelDataJson);
-      const excelFileNameHash = await useHash(excelFileName);
+      const excelDataJson = await readExcel(excelFile);
+      const excelDataHash = await createHash(excelDataJson);
+      const excelFileNameHash = await createHash(excelFileName);
 
       const { ethereum } = window;
     if(!ethereum){
