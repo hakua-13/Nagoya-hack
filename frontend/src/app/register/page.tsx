@@ -14,7 +14,7 @@ import { FileAddressDisplay } from "@/components/features/FileAddressDisplay";
 import { usePageContext } from "@/context/PageProvider";
 import { IsConnectWallet } from "@/components/features/IsConnextWallet";
 
-export default function page() {
+export default function Page() {
   const { setNowPage }  =usePageContext();
   const { currentAccount, connectWallet } = useAccountContext();
   const [ excelFile, setExcelFile ] = useState<File>();
