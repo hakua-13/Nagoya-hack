@@ -1,17 +1,19 @@
-// import { Verify } from "@/components/features/Verify";
 "use client"
 
-import { usePageContext } from "@/context/PageProvider";
-import { CONTRACT_ADDRESS } from "@/utils/Contents";
-import { readExcel } from "@/utils/readExcel";
-import { createHash } from "@/utils/createHash";
-import contractAbi from "@/utils/contractAbi.json";
 import { ethers } from "ethers";
-import { useEffect, useState } from "react";
-import { IsConnectWallet } from "@/components/features/IsConnextWallet";
-import { ExcelInput } from "@/components/features/ExcelInput";
+import { useState, useContext, useEffect } from "react";
+import Image from 'next/image'
 import { AiFillCheckCircle, AiFillCloseCircle } from "react-icons/ai";
+
+import { CONTRACT_ADDRESS } from "@/utils/Contents";
+import contractAbi from "@/utils/contractAbi.json";
+import { createHash } from "@/utils/createHash";
+import { ExcelInput } from "@/components/features/ExcelInput";
+import { readExcel } from "@/utils/readExcel";
 import { FileAddressDisplay } from "@/components/features/FileAddressDisplay";
+import { usePageContext } from "@/context/PageProvider";
+import { IsConnectWallet } from "@/components/features/IsConnextWallet";
+
 
 export default function Home() {
   const { setNowPage }  =usePageContext();
